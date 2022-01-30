@@ -1,5 +1,5 @@
-const artifact = require("../Artifact");
-const character = require("../Character")
+const artifact = require("./Artifact");
+const character = require("./Character")
 
 
 const level = 90
@@ -97,7 +97,6 @@ if (kazuha){
 }
 
 if (zhongli){
-    //elemental_bonus += 35
     ATK += 20
     let debuff = 0.2
     if (RES_mob < 1){
@@ -133,22 +132,19 @@ if (res_cryo){
 
 //------------------------------------------------------------------------------------------------------------
 
-function best_combination(combinations){
-    let best = new character.Character("ANEMO", skill, DEF_mob, RES_mob, ATK_base, DEF_base, HP_base, DEF, DEF_flat, ER, HP, HP_flat, EM, ATK, ATK_flat, crit_rate, crit_damage, elemental_bonus, HB)
-    best.setArtifacts(combinations[0])
-    getAll_ArtifactStats(best)
-    best.calcAllDMG("ATK")
+const calcCombination = (char, combination) => {
+    char.setArtifacts(combination)
+    getAll_ArtifactStats(char)
+    char.calcAllDMG("ATK")
+    return char
+}
+
+const best_combination = (combinations) => {
+    let best = calcCombination(new character.Character("ANEMO", skill, DEF_mob, RES_mob, ATK_base, DEF_base, HP_base, DEF, DEF_flat, ER, HP, HP_flat, EM, ATK, ATK_flat, crit_rate, crit_damage, elemental_bonus, HB), combinations[0])
     for (let i = 1; i < combinations.length; i++) {
-        let combination_i = combinations[i]
-        let char = new character.Character("ANEMO", skill, DEF_mob, RES_mob, ATK_base, DEF_base, HP_base, DEF, DEF_flat, ER, HP, HP_flat, EM, ATK, ATK_flat, crit_rate, crit_damage, elemental_bonus, HB)
-        char.setArtifacts(combination_i)
-        getAll_ArtifactStats(char) // extract stats of artifacts to add on character stats 
-        char.calcAllDMG("ATK")
+        let char = calcCombination(new character.Character("ANEMO", skill, DEF_mob, RES_mob, ATK_base, DEF_base, HP_base, DEF, DEF_flat, ER, HP, HP_flat, EM, ATK, ATK_flat, crit_rate, crit_damage, elemental_bonus, HB), combinations[i])
         if (char.DMG.average > best.DMG.average) {
-            best = new character.Character("ANEMO", skill, DEF_mob, RES_mob, ATK_base, DEF_base, HP_base, DEF, DEF_flat, ER, HP, HP_flat, EM, ATK, ATK_flat, crit_rate, crit_damage, elemental_bonus, HB)
-            best.setArtifacts(combination_i)
-            getAll_ArtifactStats(best)
-            best.calcAllDMG("ATK")
+            best = char
         }
     }
     return best
@@ -190,6 +186,7 @@ function getAll_ArtifactStats(character){
 }
 
 let best = best_combination(artifact.combinations)
+console.log("Total combinations: "+artifact.combinations.length)
 best.printCombination()
 
 module.exports = {best}
