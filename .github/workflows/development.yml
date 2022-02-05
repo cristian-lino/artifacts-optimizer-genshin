@@ -15,7 +15,7 @@ jobs:
           ls ${{ github.workspace }}
       - name: Build the app
         run: |
-          npm build
+          npm install
       - name: Test the app
         run: |
           npm run test
