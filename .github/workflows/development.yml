@@ -13,6 +13,9 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Build the app
+        run: |
+          npm build
       - name: Test the app
         run: |
           npm run test
