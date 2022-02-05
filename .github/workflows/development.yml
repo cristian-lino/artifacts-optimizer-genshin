@@ -14,7 +14,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: Test the app
-      - run: npm run test
+        run: |
+          npm run test
       - name: Run the app
-      - run: npm run start
+        run: |
+          npm run start
       - run: echo "🍏 This job's status is ${{ job.status }}."
