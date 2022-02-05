@@ -28,7 +28,7 @@ class Character {
     }
 
     getHP() {
-        return (this.HP_base * this.HP/100 + this.HP_flat)
+        return (this.HP_base * (this.HP+100)/100 + this.HP_flat)
     }
 
     getDEF() {
