@@ -79,7 +79,7 @@ class Character {
     }
 
     printCombination() {
-        console.log("HP TOTAL: "+(this.HP_base * this.HP/100 + this.HP_flat))
+        console.log("HP TOTAL: "+(this.HP_base * (this.HP+100)/100 + this.HP_flat))
         console.log("DEF TOTAL: "+(this.DEF_base * this.DEF/100 + this.DEF_flat))
         console.log("ATK TOTAL: "+(this.ATK_base * this.ATK/100 + this.ATK_flat))
         console.log("Critical Rate: "+(this.crit_rate))

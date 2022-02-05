@@ -43,7 +43,6 @@ const res_cryo = false
 
 let DEF_mob = (level + 100)/(level + mob_level + 200)
 let RES_mob = (100 - mob_resistance)/100
-HP += 100
 ATK += 100
 DEF += 100
 ER += 100
