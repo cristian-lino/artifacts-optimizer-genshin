@@ -129,22 +129,6 @@ let sands = [sand_1, sand_2, sand_3, sand_4, sand_5, sand_6, sand_7, sand_8, san
 let goblets = [goblet_1, goblet_2, goblet_3, goblet_4, goblet_5, goblet_6, goblet_7, goblet_8, goblet_9, goblet_10, goblet_11, goblet_12, goblet_13, goblet_14, goblet_15, goblet_16, goblet_17, goblet_18, goblet_19, goblet_20, goblet_21, goblet_22, goblet_23, goblet_24, goblet_25]
 let circlets = [circlet_1, circlet_2, circlet_3, circlet_4, circlet_5, circlet_6, circlet_7, circlet_8, circlet_9, circlet_10, circlet_11, circlet_12, circlet_13, circlet_14, circlet_15, circlet_16]
 
-
-const flower_test = new Artifact(type="Flower", set="SHIMENA", DEF=0, DEF_flat=0, ER=0, HP=0, HP_flat=4780, EM=23, ATK=5.8, ATK_flat=0, crit_rate=3.9*6, crit_damage=7.8, elemental_bonus={type: "", value: 0}, HB=0)
-const feather_test = new Artifact(type="Feather", set="SHIMENA", DEF=0, DEF_flat=0, ER=0, HP=0, HP_flat=0, EM=23, ATK=5.8, ATK_flat=311, crit_rate=3.9, crit_damage=7.8*6, elemental_bonus={type: "", value: 0}, HB=0)
-const sand_test = new Artifact(type="Sands", set="SHIMENA", DEF=0, DEF_flat=0, ER=0, HP=0, HP_flat=0, EM=23, ATK=46.6, ATK_flat=19, crit_rate=3.9, crit_damage=7.8*6, elemental_bonus={type: "", value: 0}, HB=0)
-const goblet_test = new Artifact(type="Goblet", set="SHIMENA", DEF=0, DEF_flat=0, ER=0, HP=0, HP_flat=0, EM=23, ATK=5.8, ATK_flat=0, crit_rate=3.9, crit_damage=7.8*6, elemental_bonus={type: "CRYO", value: 46.6}, HB=0)
-const circlet_test = new Artifact(type="Circlet", set="SHIMENA", DEF=0, DEF_flat=0, ER=0, HP=0, HP_flat=0, EM=23, ATK=5.8, ATK_flat=19, crit_rate=31.1, crit_damage=7.8*6, elemental_bonus={type: "", value: 0}, HB=0)
-
-
-// flowers = [flower_test]
-// feathers = [feather_test]
-// sands = [sand_test]
-// goblets = [goblet_test]
-// circlets = [circlet_test]
-//circlets = [circlet_7]
-
-
 let artifacts = [flowers, feathers, sands, goblets, circlets]
 const cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat())))
 let combinations = cartesian(artifacts[0], artifacts[1], artifacts[2], artifacts[3], artifacts[4])

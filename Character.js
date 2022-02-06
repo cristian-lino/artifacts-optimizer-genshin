@@ -88,7 +88,7 @@ class Character {
         console.log("Elemental Mastery: "+(this.EM))
         console.log("Energy Recharge: "+(this.ER))
         console.log("")
-        console.log("FLOR")
+        console.log("Flower")
         console.log("Set: "+this.flower.set+"  DEF: "+(this.flower.DEF)+"  DEF_flat: "+(this.flower.DEF_flat)+"  ER: "+(this.flower.ER)+"  HP: "+(this.flower.HP)+"  HP_flat: "+(this.flower.HP_flat)+"  EM: "+(this.flower.EM)+"  ATK: "+(this.flower.ATK)+"  ATK_flat: "+(this.flower.ATK_flat)+" crit_rate: "+(this.flower.crit_rate)+"%  crit_damage: "+(this.flower.crit_damage)+"%")
         console.log("")
         console.log("Feather")
