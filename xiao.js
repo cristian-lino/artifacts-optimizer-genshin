@@ -18,7 +18,7 @@ let DEF = 0
 let DEF_flat = 0
 
 let EM = 0
-let ER = 0
+let ER = 100
 let HB = 0
 
 let crit_rate = 24.2 + 22.1
@@ -44,8 +44,6 @@ const res_cryo = false
 let DEF_mob = (level + 100)/(level + mob_level + 200)
 let RES_mob = (100 - mob_resistance)/100
 ATK += 100
-DEF += 100
-ER += 100
 crit_damage += 100
 elemental_bonus += 100
 

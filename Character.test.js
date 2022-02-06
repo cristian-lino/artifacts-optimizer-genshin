@@ -6,9 +6,9 @@ const char = new character.Character(
   DEF_mob=0, 
   RES_mob=0, 
   ATK_base=0, 
-  DEF_base=0, 
+  DEF_base=1000, 
   HP_base=1000, 
-  DEF=0, 
+  DEF=20, 
   DEF_flat=0, 
   ER=0, 
   HP=20, 
@@ -23,4 +23,8 @@ const char = new character.Character(
 
   test('adds HP_base=1000 and 20% bonus on HP to equal 1200', () => {
     expect(char.getHP()).toBe(1200)
+  })
+
+  test('adds DEF_base=1000 and 20% bonus on DEF to equal 1200', () => {
+    expect(char.getDEF()).toBe(1200)
   })

@@ -32,7 +32,7 @@ class Character {
     }
 
     getDEF() {
-        return (this.DEF_base * this.DEF/100 + this.DEF_flat)
+        return (this.DEF_base * (this.DEF+100)/100 + this.DEF_flat)
     }
 
     setArtifacts(artifacts) {
@@ -66,7 +66,7 @@ class Character {
             Scale_total = this.ATK_base * this.ATK/100 + this.ATK_flat
         }
         if (scale === "DEF"){
-            Scale_total = this.DEF_base * this.DEF/100 + this.DEF_flat
+            Scale_total = this.DEF_base * (this.DEF+100)/100 + this.DEF_flat
         }
         
         let DMG = Scale_total * this.skill/100 * this.elemental_bonus/100 * this.DEF_mob * this.RES_mob
@@ -80,7 +80,7 @@ class Character {
 
     printCombination() {
         console.log("HP TOTAL: "+(this.HP_base * (this.HP+100)/100 + this.HP_flat))
-        console.log("DEF TOTAL: "+(this.DEF_base * this.DEF/100 + this.DEF_flat))
+        console.log("DEF TOTAL: "+(this.DEF_base * (this.DEF+100)/100 + this.DEF_flat))
         console.log("ATK TOTAL: "+(this.ATK_base * this.ATK/100 + this.ATK_flat))
         console.log("Critical Rate: "+(this.crit_rate))
         console.log("Critical Damage: "+(this.crit_damage-100))
