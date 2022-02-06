@@ -1,5 +1,5 @@
-const artifact = require("./Artifact");
-const character = require("./Character")
+const artifact = require("./src/Artifacts/Artifact");
+const character = require("./src/Character/Character")
 
 
 const level = 90
