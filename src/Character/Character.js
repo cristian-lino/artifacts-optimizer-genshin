@@ -1,3 +1,6 @@
+const calc = require("../CalcDamage/calc")
+
+
 class Character {
     constructor(element, skill, DEF_mob, RES_mob, ATK_base, DEF_base, HP_base, DEF, DEF_flat, ER, HP, HP_flat, EM, ATK, ATK_flat, crit_rate, crit_damage, elemental_bonus, HB) {
         this.flower
@@ -61,30 +64,19 @@ class Character {
     }
 
     calcAllDMG(scale) {
-        let Scale_total
-        if (scale === "ATK"){
-            Scale_total = this.ATK_base * this.ATK/100 + this.ATK_flat
-        }
-        if (scale === "DEF"){
-            Scale_total = this.DEF_base * (this.DEF+100)/100 + this.DEF_flat
-        }
-        
-        let DMG = Scale_total * this.skill/100 * this.elemental_bonus/100 * this.DEF_mob * this.RES_mob
-        let DMG_crit = DMG * this.crit_damage/100
-        let DMG_average = (10*this.crit_rate*DMG_crit+10*(100-this.crit_rate)*DMG)/1000
-        if (this.crit_rate >= 100){
-            DMG_average = DMG_crit
-        }
+        const DMG = calc.dmg(scale, this, 100)
+        const DMG_crit = calc.dmgCrit(DMG, this)
+        const DMG_average = calc.dmgAverage(DMG, DMG_crit, this)
         this.DMG = {dmg: DMG, crit: DMG_crit, average: DMG_average}
     }
 
     printCombination() {
         console.log("HP TOTAL: "+(this.HP_base * (this.HP+100)/100 + this.HP_flat))
         console.log("DEF TOTAL: "+(this.DEF_base * (this.DEF+100)/100 + this.DEF_flat))
-        console.log("ATK TOTAL: "+(this.ATK_base * this.ATK/100 + this.ATK_flat))
+        console.log("ATK TOTAL: "+(this.ATK_base * (this.ATK+100)/100 + this.ATK_flat))
         console.log("Critical Rate: "+(this.crit_rate))
-        console.log("Critical Damage: "+(this.crit_damage-100))
-        console.log("Elemental BONUS: "+(this.elemental_bonus-100))
+        console.log("Critical Damage: "+(this.crit_damage))
+        console.log("Elemental BONUS: "+(this.elemental_bonus))
         console.log("Elemental Mastery: "+(this.EM))
         console.log("Energy Recharge: "+(this.ER))
         console.log("")

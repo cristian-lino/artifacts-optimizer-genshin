@@ -43,9 +43,6 @@ const res_cryo = false
 
 let DEF_mob = (level + 100)/(level + mob_level + 200)
 let RES_mob = (100 - mob_resistance)/100
-ATK += 100
-crit_damage += 100
-elemental_bonus += 100
 
 if (weapon_passive){
     ATK += 22.4
