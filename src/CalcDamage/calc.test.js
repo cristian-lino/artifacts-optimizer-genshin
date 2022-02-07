@@ -24,11 +24,15 @@ const char = new character.Character(
   EM=0, 
   ATK=0, 
   ATK_flat=0, 
-  crit_rate=0, 
+  crit_rate=50, 
   crit_damage=100, 
   elemental_bonus=0, 
   HB=0)
 
 test('add char_level=50 and mob level=50 with 50% resistance. The skill applies 100% of ATK scale to equals 250', () => {
   expect(calc.dmg("ATK", char, 100)).toBe(250)
+})
+
+test('add char_level=50 and mob level=50 with 50% resistance. The skill applies 100% of ATK scale to equals 250', () => {
+  expect(calc.dmgCrit(250, char)).toBe(500)
 })
