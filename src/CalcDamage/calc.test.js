@@ -36,3 +36,7 @@ test('add char_level=50 and mob level=50 with 50% resistance. The skill applies 
 test('add char_level=50 and mob level=50 with 50% resistance. The skill applies 100% of ATK scale to equals 250', () => {
   expect(calc.dmgCrit(250, char)).toBe(500)
 })
+
+test('add char_level=50 and mob level=50 with 50% resistance. The skill applies 100% of ATK scale to equals 250', () => {
+  expect(calc.dmgAverage(250, 500, char)).toBe(375)
+})
